@@ -25,18 +25,18 @@ portraits: '/assets/profile.jpeg' # your portraits image file path
 # SNS
 SNS: true
 SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
-  mail: 'mailto:abc@gmail.com'
-  weixin: '/assets/wechatQR.jpeg' # 你的微信二维码存放的地址
-  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
-  github: 'XieHangcheng'
-  Codepen: ''
-  weibo: 'Pluto61527'
+  mail: '65952412@qq.com'
+  weixin: '/assets/wechatQR.jpg' # 你的微信二维码存放的地址
+  #qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: 'https://github.com/XieHangcheng'
+  #Codepen: ''
+  weibo: 'https://weibo.com/u/1922525927'
   #instagram: ''
   #Twitter: ''
   #Dribbble: ''
   #Facebook: ''
   #Google: ''
-  zhihu: '谢杭成'
+  zhihu: 'http://www.zhihu.com/people/xie-hang-cheng-66'
   #juejin: ''
   #twitch: ''
 
