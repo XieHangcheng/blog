@@ -1,30 +1,12 @@
-<!-- The footer at the very bottom of the screen -->
-<footer class="footer section-padding">
-  <div class="grid">
-    <div class="subscribe" id="subscribe">
-      <div class="subscribe__container">
-        <span class="subscribe__title">Subscribe</span>
-        <p class="subscribe__text">Get a weekly email of posts I’ve added to the site.</p>
-        {% include subscribe-form.html %}
-      </div>
-    </div>
-
-    <hr class="sep--white"/>
-
-    <div class="footer__container">
-      {% tags_list :threshold => 1, :sort_by => count, :order_by => desc, :limit => 5 %}
-
-      {% include social.html %}
-    </div>
-  </div>
+<footer id="bottom">
+  <br>
+  <span>{{ site.title }} ©
+  {% assign current = "now" | date: "%Y" | plus: 0%}
+  {% unless site.footer.since and site.footer.since == current %}
+    {{ site.footer.since }}
+    -
+  {% endunless %}
+  {{ current }}
+  <br>
+  Powered by <a href="https://www.jekyll.com.cn/">Jekyll</a> | <a href="https://github.com/xukimseven/HardCandy-Jekyll">HardCandy-Jekyll</a></span>
 </footer>
-
-{% include contact.html %}
-
-{% if paginator.next_page %}
-  <script>
-    var maxPages = parseInt('{{ paginator.total_pages }}');
-  </script>
-{% endif %}
-
-<script src="{{ '/assets/js/app.min.js' | prepend: site.baseurl }}"></script>

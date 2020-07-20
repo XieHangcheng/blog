@@ -1,21 +1,18 @@
 ---
 layout: default
-pagination:
-  enabled: true
+title: your awesome title
+page-title: your awesome page-title.
+home-title: your awesome home-title.
+description: description
 ---
-<!-- The main content area -->
-<div class="posts">
-  <div class="grid-xlarge">
-    <div class="posts__container" itemscope itemtype="http://schema.org/Blog" data-columns>
 
-      {% for post in paginator.posts %}
-
-        <!-- The tag below includes the markup for each post - partials/post-card.html -->
-        {% include post-card.html %}
-
-      {% endfor %}
-    </div>
-  </div>
-
-  {% include pagination.html %}
-</div>
+{% include header.html %}
+{% include boot.html %}
+<main>
+    {% include title.html %}
+    <ul class="post-list">
+      {% include posts_paginator.html %}
+    </ul>
+</main>
+{% include pageNav.html %}
+{% include footer.html %}

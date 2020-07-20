@@ -1,231 +1,383 @@
-# Barber
-Barber is a minimal blog theme built for Jekyll. The blog theme features a masonry grid, endless scrolling, and page transitions. 💈 Barber is also available for [Ghost](https://github.com/samesies/barber-ghost).
+## HardCandy-Jekyll
 
-![Barber](https://raw.githubusercontent.com/samesies/barber-jekyll/master/barber.jpg "Barber")
 
-## Initial Setup
-* [Installation](#installation)
-* [Update Settings](#update-settings)
-* [Create Posts](#create-posts)
-* [Create Pages](#create-pages)
-* [Create Navigation](#create-navigation)
 
-## Customization
-* [Contact Form](#contact-form)
-* [Social Media Links](#social-media-links)
-* [Disqus Comments](#disqus-comments)
+### Preview
 
-## Additional Development
-* [Deployment](#deployment)
-* [Source Code](#source-code)
-* [Donations](#donations)
-* [Support](#support)
+[在线预览 view demo →](http://xseven.me/)
 
-### Installation
-Jekyll requires all dependencies to be saved in the ````Gemfile````. Run ````bundle install```` (Install [Bundler](http://bundler.io/) if it is not already) on your command line after downloading or cloning the theme. You can then run ````bundle exec jekyll serve```` or ````npm start```` to see your development site. Run ````bundle exec jekyll build```` or ````npm run build```` to build a production ready site for deployment.
+![1](/screenshot/1.png)
 
-### Update Settings
-Almost everything to personalize your site is in the ````_config.yml````. 
+![2](/screenshot/2.png)
 
-```
-# Site/SEO settings
-email: okay@samesies.io
-baseurl: ""
-permalink: /:year/:month/:day/:title/
-google_analytics: 
+![3](/screenshot/3.png)
 
-name: Thomas Vaeth
-title: The Barber Theme
-description: >
-  Barber is a blog theme for Jekyll built by Thomas Vaeth for Samesies using HTML, Sass, and JavaScript.
-url: http://barber.samesies.io
-twitter_username: thomasvaeth
-default_img: /assets/images/seo.jpg
-social:
-  - name: twitter
-    url: https://twitter.com/thomasvaeth
-  - name: instagram
-    url: https://www.instagram.com/thomas.vaeth/
-  - name: linkedin
-    url: https://www.linkedin.com/in/thomasvaeth/
-  - name: github
-    url: https://github.com/samesies
-  - name: codepen
-    url: https://codepen.io/thomasvaeth/
+想要查看手机端显示效果，扫描下方二维码浏览器打开即可
 
-# Contact settings
-contact_img: /assets/images/placeholder-28.jpg
-formcarry: https://formcarry.com/s/HkIo0nMb7
+![4](/screenshot/4.png)
 
-# Disqus settings
-disqus: test-apkdzgmqhj
 
-# MailChimp settings
-mailchimp_action: https://samesies.us17.list-manage.com/subscribe/post-json?u=66ddf555dab480e6a8606430b&amp;id=89b3ee034f
-mailchimp_input: b_66ddf555dab480e6a8606430b_89b3ee034f
 
-# Author settings
-author:
-  - name: Thomas Vaeth
-    bio: Thomas Vaeth was born in New York, raised in Pennsylvania, and transplanted in Washington. He was a Web Developer at Urban Influence, but now he's a Software Engineer at Getty Images.
-    url: http://thomasvaeth.com
+### 主题特性
 
-# Pagination settings
-pagination:
-  enabled: true
-  debug: false
-  per_page: 12
-  permalink: '/page/:num/'
-  title: ':title'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-autopages:
-  enabled: true
-  categories:
-    enabled: false
-  collections:
-    enabled: false
-  tags:
-    layouts: 
-      - 'tag.html'
-    title: 'The Barber Theme'
-    permalink: '/tag/:tag'
-    slugify:
-      mode: raw
-      cased: true
-```
+- 主题基于 `jekyll 3.8.1` 开发
+- 响应式布局
+- 文章标签索引
+- 文章时间线索引
+- 博主个人信息展示
+- 支持9种代码高亮主题色
+- 支持 `dispus` 、 `来必力` 、 `Gitment` 三种评论系统
+- 支持 `百度统计` 、`谷歌分析` 两种网站追踪系统
+- 支持13款不同社交平台图标及链接地址指向
+- 支持11个不同平台的文章分享路口
 
-You can change the URL the [contact form](#contact-form) is sent to, add Google Analytics, change the SEO settings, grow your website with additional authors, and much more.
 
-### Create Posts
-All posts go upder the ````_posts```` directory. You can also have a ````_drafts```` directory with posts that will on your development page, but not in production.
 
-```
+### 开始使用
+
+#### 线上部署
+
+​	首先在 `github` 上开启一个仓库起名为 `你的github用户名.github.io` 。并 `clone` 你的仓库到本地。 然后下载 `HardCandy-Jekyll` 的 [源码](https://github.com/xukimseven/HardCandy-Jekyll) 到本地之后，将 `_config.yml` 文件更改为自己的配置（下面会介绍）。之后，将所有文件拷贝至自己的本地仓库根目录下，再上传至自己的 `github` 线上仓库，即可通过域名 `https://你的github用户名.github.io` 访问看到自己的博客页面。
+
+#### 本地部署
+
+​	首先在本地安装 `Jekyll` [详情请戳](https://www.jekyll.com.cn/docs/quickstart/)
+
+​	安装完成之后，使用命令 `jekyll -v` 查看 **jekyll版本号** ，若低于 `jekyll 3.x.x` 则需要升级至 `jekyll 3.x.x` 。 
+
+​	使用 `gem install jekyll-paginate` 或 `sudo gem install jekyll-paginate` 安装Jekyll的分页插件。
+
+​	将源码 `clone` 到本地后，在终端进入 `HardCandy-Jekyll` 根目录，运行 `jekyll server` 或 `bundle exec jekyll serve` ，即可开启jekyll的服务。通过浏览器访问 [http://localhost:4000](http://localhost:4000) ，即可看到本地部署的 `HardCandy-Jekyll` 博客了。
+
+> warning！值得注意的地方：
+>
+> ​	由于本主题是基于 `jekyll 3.8.1` 开发 ，jekyll的版本差异也许会导致相关显示效果的差异。详情请参考官方文档：[news](https://jekyllrb.com/news/)
+
+
+
+### 配置文档
+
+- 开始
+  - [关于博客](#关于博客)
+  - [写文章](#写文章)
+- 组件
+  - [博主个人信息](#博主个人信息)
+  - [社交媒体](#社交媒体)
+  - [首页显示信息](#首页显示信息)
+  - [导航栏](#导航栏)
+  - [分页](#分页)
+  - [代码高亮主题](#代码高亮主题)
+  - [友情链接](#友情链接)
+  - [页脚](#页脚)
+- 第三方服务
+  - [评论系统的切换](#评论系统的切换)
+  - [文章分享的路口](#文章分享的路口)
+  - [网站流量追综的配置](#网站流量追综的配置)
+
+
+
+> ​	通用修改 `_config.yml` 文件，你便可以轻松搭建属于你自己的个人博客。
+>
+> ​	一部分配置，默认已经是配置好的，你只需要修改下面列出的内容即可完成搭建。
+
+
+
+#### 关于博客
+
+```yaml
 ---
+# Site settings 配置站点
+title: 'your awesome title'
+description: 'your web description'
+keywords: 'your web keywords, another keywords'
+url: 'https://abc.github.io' # your host
+---
+```
+
+`title` ：用于页面的 title 标签的显示内容
+
+`description` ：网站的简介
+
+`keywords` ：网站的关键词
+
+`url` ：网站域名
+
+
+
+#### 写文章
+
+​	博客通过解析 `markdown` 文件来部署文章页面的，所以用户写文章只需要写一篇markdown，并放置在站点根目录下的 `_post` 文件夹即可。具体的markdown语法自行上网搜索学习，或使用markdown编辑器进行写作。推荐一款 markdown编辑器：[typora](https://www.typora.io) 。支持 windows 、mac OSX 、Linux 。
+
+关于文章 YAML头信息：
+
+```yaml
 layout: post
-title: "Brunch Swag"
-date: 2017-02-18
-description: 
-image: /assets/images/placeholder-15.jpg
-author: Thomas Vaeth
-tags: 
-  - XOXO
-  - La Croix
+title:  "post title"
+subtitle: 'post subtitle'
+date:   2018-05-29 08:44:13
+tags: html js css
+description: ''
+color: 'rgb(154,133,255)'
+cover: ''
+```
+
+关于color：
+
+​	此处的color用于post页面的顶部位置的背景色。如上面展示图所示为 `rgb(154,133,255)` 色。
+
+​	对于color的书写，如果颜色代码为 `rgb` 或 `rgba` 又或是 `英文单词` 的话，可以不用引号包裹，但如果颜色代码为 `#123456` 这种16进制码的话，就必须使用引号包裹。所以，在使用中，推荐一致都使用引号，以免错误使用。
+
+​	当然，如果你在书写文章时，忘记写color的值的话，主题默认会为你填写 `rgb(154,133,255)` 色。就是上图显示的颜色。虽然不影响页面的显示，但如果想要更多彩的页面效果的话，建议在每一篇的头信息里写上 color 值。
+
+关于cover：
+
+​	此处需填写某一张图片的 `url` ，`url` 值可以是线上的某张图片，也可以是博客目录下的图片。关键是要书写正确。这张图片用于在首页下博客列表里显示，如下图。
+
+![5](/screenshot/5.png)
+
+
+
+#### 博主个人信息
+
+```yaml
+# 博主
+author: true
+name: 'your awesome name'
+NickName: 'your awesome nickname'
+webtitle: 'your awesome webtitle'
+bio: 'your awesome bio'
+about: true
+aboutyou: 'your introduction'
+portraits: '/assets/profile.jpeg' # your portraits image file path
+```
+
+​	该部分显示在 `关于博主` 页面，与 `社交媒体` 一同在下图显示。
+
+![6](/screenshot/6.png)
+
+关于author：
+
+​	使用 `true` 或者 `false` 来打开或关闭博主信息卡片，默认 true ，最佳体验也是 true 。
+
+关于about：
+
+​	使用 `true` 或者 `false` 来打开或关闭博主关于信息，即是否显示 aboutyou 部分的信息。默认 true ，该部分需要在 aboutyou 中输入相关信息，支持在此填写html代码。
+
+
+
+#### 社交媒体
+
+```yaml
+# SNS
+SNS: true
+SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:abc@gmail.com'
+  weixin: '' # 你的微信二维码存放的地址
+  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: ''
+  Codepen: ''
+  weibo: ''
+  instagram: ''
+  Twitter: ''
+  Dribbble: ''
+  Facebook: ''
+  Google: ''
+  zhihu: ''
+  juejin: ''
+  twitch: ''
+```
+
+​	~~主题一共配置了 13种 社交媒体的图标，只要在需要开启的社交账号的名字后填写你的个人主页链接即可，不需要开启的就在那一行的头部用 `#` 注释这一行即可。同样的，如果需要更换每个图标的排列位置，只需要改变他们的每一行排列的顺序即可。~~
+
+​	在 `SNS` 后填写  `true` 或者 `false` 来打开或者关闭这一部分。
+
+2018/09/28 更新：
+
+![7](/screenshot/sns-icon.png)
+
+- 更新社交图标为 线上地址 ，便于管理与修改。
+- 添加 **Codepen** 图标
+- 修改原来的圆形图标为不规则图标
+
+
+
+#### 首页显示信息
+
+```yaml
+---
+layout: default
+title: your awesome title
+page-title: awesome page-title.
+home-title: awesome home-title.
+description: description
 ---
 ```
 
-The front matter has to have a layout of page. All the other fields are completely optional. If you have an ````author```` variable, then it must match an author's name in ````_config.yml```` (see [Update Settings](#update-settings)). The ````tag```` variable will add a related section to the post and popular tags to the footer.
+​	该部分位于 `index.html` 页面，修改 `title` 、`page-title` 、`home-title`  、`description`为个人想要的信息，默认配置的显示效果如下图。
 
-### Create Pages
-Creating a static page is the same as creating a post. The only difference is a page is in the root of the directory rather than the ````_posts```` directory.
+![7](/screenshot/7.png)
 
-```
----
-layout: page
-title: Style Guide
-image: /assets/images/placeholder-18.jpg
----
-```
 
-You just have to make sure the front matter has a layout of page instead of post. If there is no title or image, then the page will default to the site configuration.
 
-### Create Navigation
-You can create a navigation in ````_includes/navigation.html````. Visitors can be linked directly to pages right on the top of your website.
+#### 导航栏
 
-***
-
-### Contact Form
-The form uses [Formcarry](https://formcarry.com/) to send submitted messages straight to your inbox. The image on the popup is the the ````contact_img```` variable and the URL the forms sends to is the ````formcarry```` variable in ````_config.yml```` (see [Update Settings](#update-settings)).
-
-![Contact Form](http://samesies.io/assets/images/barber/doc/framed-contact-form.jpg "Contact Form")
-
-This file can be found in ````_includes/formscarry.html````. You can change the labels of the form here. After everything is set you will need to submit a message to yourself to confirm everything is correct.
-
-### Social Media Links
-[Font Awesome](http://fontawesome.io/) is used for the social media icons. The icons in the theme can be found in ````_includes/share.html```` and ````_includes/social.html````. The icons in ````_includes/share.html```` do not need to be edited unless you want to remove a certain website; however, the ones in ````_includes/social.html```` do have to be changed. You can follow the example that has been provided in ````_config.yml```` for you to link to all of your social media accounts  (see [Update Settings](#update-settings)). The naming convention has not changed from the instructions provided on Font Awesome.
-
-### Disqus Comments
-Comments can be enabled on every blog post in a few steps steps. The first step is to register your website with [Disqus](https://disqus.com/). Disqus will provide you with a shortname that you need for the next step. Once you have that the second step is to replace the ````disqus```` variable in ````_config.yml```` (see [Update Settings](#update-settings)). The third step is to open ````_includes/disqus.html```` and remove all the instructions. The final step is to visit a blog post and verify that your comments are there.
-
-***
-
-### Deployment
-GitHub Pages [does not support]((https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/)) custom plugins. The tag list and tag pagination are built using custom plugins. There are several options to avoid any errors while deploying to production.
-* Run ````bundle exec jekyll build```` or ````npm run build```` and manually add the contents of the ```_site``` folder to the ```gh-pages``` branch.
-* Link the repository to [Netlify](https://www.netlify.com/). Netlify will then rebuild the theme every time a commit is pushed to the repo.
-* Finish setting up the [s3-website](https://github.com/klaemo/s3-website) package that is already included in the theme. This would deploy the theme to AWS S3 when ```npm run deploy``` is run.
-
-### Source Code
-The source code is broken down to make finding what you need as easy as possible. Almost everything runs through ````gulpfile.js````, so you will need to run ````npm install```` on your command line before doing any additional development. You can then run ````gulp```` or ````npm run gulp```` to compile everything.
-
-```
-.
-├── _assets
-|   ├── js
-|       ├── components
-|       ├── vendor
-|       ├── _inits.js
-|       └── app.js
-|   └── scss
-|       ├── base
-|       ├── components
-|       ├── fonts
-|       ├── regions
-|       ├── tools
-|       ├── utils
-|       ├── vendor
-|       └── app.scss
-├── _includes
-|   ├── contact.html
-|   ├── disqus.html
-|   ├── footer.html
-|   ├── formcarry.html
-|   ├── head.html
-|   ├── header.html
-|   ├── navigation.html
-|   ├── pagination.html
-|   ├── post-card.html
-|   ├── share.html
-|   ├── social.html
-|   └── subscribe_form.html
-├── _layouts
-|   ├── compress.html
-|   ├── default.html
-|   ├── page.html
-|   ├── post.html
-|   └── tag.html
-├── _plugins
-├── _posts
-├── _site
-├── assets
-|   ├── css
-|   ├── images
-|   ├── js
-├── .eslintrc
-├── .gitignore
-├── .stylelintrc
-├── 404.html
-├── _config.yml
-├── Gemfile
-├── Gemfile.lock
-├── gulpfile.js
-├── index.html
-├── package.json
-├── README.md
-├── style-guidle.html
-└── subscribe.html
+```yaml
+# nav 中文字符空格：&emsp;
+nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
+  首页: '/'
+  标签: '/tags.html'
+  时间线: '/timeline.html'
+  关于博主: '/about.html'
+  友情链接: '/friendLink.html'
 ```
 
-The CSS is written in Sass. The JavaScript is written in ES6, so your code is up to date with the newest standards.
+​	默认全部开启他们，当然如果想要自己添加，按照格式填在下方即可，当然页面显示顺序与每一行的位置有关。
 
-### Donations
-Barber has been released for free. Similar themes cost around $29 on [ThemeForest](https://themeforest.net/category/static-site-generators/jekyll). Any donations would be greatly appreciated after the work that went into releasing Barber.
 
-* PayPal – <https://www.paypal.me/samesies>
-* Bitcoin – 1PSzNmcfAFJY1PtBK5u9R5bTGfF7KAuLcq
-* Ethereum – 0x392F7116e4171F1D740397B6000EadD2e4bb9670
-* Litecoin – LSH9AnjcUTV5T7PUxXQuxPqb9W5aSR9GEP
 
-### Support
-Email <okay@samesies.io> if you need any additional support with Barber.
+#### 分页
+
+```yaml
+# 分页
+paginate: 2
+paginatepath: ['page:num']
+```
+
+​	随个人爱好在，在上面填写你需要的在首页一页最多显示多少篇博客的数字。
+
+​	本地部署的需要使用 `gem install jekyll-paginate` 或 `sudo gem install jekyll-paginate` 安装Jekyll的分页插件。
+
+
+
+#### 代码高亮主题
+
+```yaml
+# 代码高亮 使用rouge
+highlighter: rouge
+# 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
+pygmentsTheme: 'default'
+```
+
+​	代码高亮使用 jekyll3.0 之后的默认高亮引擎 `rouge` 。关于主题，只需要在 `pygmentsTheme` 后填写喜欢的主题名称即可。共有9款主题可选，主题名见上文。
+
+​	代码高亮的写法：
+
+~~~markdown
+``` css
+*{
+ margin:0;
+ padding:0;
+}
+```
+~~~
+
+2018/09/28 更新：
+
+![7](/screenshot/博客代码高亮例子.png)
+
+上图为 **代码高亮试例图** ，仅以 html 作为参考例子，其他代码参考 上图，或自行切换测试选择自己喜欢的代码高亮主题
+
+
+
+#### 友情链接
+
+```yaml
+# 友情链接
+friends:
+  jekyll: 'https://www.jekyll.com.cn/'
+```
+
+​	按格式填写即可，排序与配置文件里的排序有关。
+
+
+
+#### 页脚
+
+```yaml
+# since
+footer:
+  since: 2018
+```
+
+​	用于页脚显示时间。
+
+
+
+#### 评论系统的切换
+
+```yaml
+# 评论 最佳体验 在disqus、livere和Gitment之间三选一
+# disqus 评论
+disqus: false
+disqus_url: '' # https://abc.disqus.com/embed.js
+# 来必力评论
+livere: true
+livere_uid: 'MTAyMC8zNDI2OS8xMDgwNg==' # MTAyMC8zNDI2OS8xMDgwNg==
+# Gitment评论 OAuth Application
+Gitment: false
+Gitment_owner: ''  # github用户名
+Gitment_repo: ''  # github博客存放的仓库名
+client_id: ''  # 注册 OAuth Application 后获得的 client_id
+client_secret: ''  # 注册 OAuth Application 后获得的 client_secret
+```
+
+​	按申请第三方评论是获取的相关信息在配置文件中进行填写即可。
+
+​	共有三款评论可供选择，使用 `true` 或者 `false` 开启或关闭某个评论系统。可开启多个甚至全开。当然，最佳体验，开一个即可。
+
+​	三款评论的样式如下图：
+
+dispus：
+
+![8](/screenshot/8.png)
+
+来必力：
+
+![9](/screenshot/9.png)
+
+Gitment评论：
+
+![10](/screenshot/10.png)
+
+​	三款评论各有各的优势与坏处。出于显示样式与中国大陆网络环境考虑，主题默认开启 `来必力` 评论为最佳体验。当然需要填写好相关的 `livere_uid` 代码。
+
+
+
+#### 文章分享的路口
+
+```yaml
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+```
+
+​	为了让文章更方便地分享，使用了第三方分享插件[Share.js](http://overtrue.github.io/share.js/)，支持一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等社交网站。
+
+​	只需要填写相关的名称在 `social-share-items` 后即可，显示顺序与书写顺序有关。
+
+
+
+#### 网站流量追综的配置
+
+```yaml
+# 百度统计 在baidu-url里填写自己相关的url代码
+baidu: true
+baidu-url: ''
+# 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
+google: false
+google-ID: ''
+```
+
+​	在 `baidu-url` 和 `google-ID` 分别填上注册获取的相关信息。使用 `true` 或者 `false` 开启或关闭他们。出于中国大陆网络环境，默认开启 百度统计 ，当然可以多开。
+
+
+
+### License 许可证
+
+HardCandy-Jekyll is licensed under [MIT](https://github.com/xukimseven/HardCandy-Jekyll/blob/master/LICENSE).
+
+
+
+### 求Star 求关注
+
+看到这里，如果你喜欢我的小项目，欢迎下载使用他，也请你为我点个小星星 😜 ，多谢。

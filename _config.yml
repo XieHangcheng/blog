@@ -1,86 +1,90 @@
-# Site/SEO settings
-email: okay@samesies.io
-baseurl: ""
-permalink: /:year/:month/:day/:title/
-google_analytics: 
+# Site settings 配置站点
+title: 'Blog'
+description: '个人博客，记录技术成长和心得'
+keywords: ' '
+url: 'https://XieHangcheng.github.io' # your host
 
-name: Thomas Vaeth
-title: The Barber Theme
-description: >
-  Barber is a blog theme for Jekyll built by Thomas Vaeth for Samesies using HTML, Sass, and JavaScript.
-url: http://barber.samesies.io
-twitter_username: thomasvaeth
-default_img: /assets/images/seo.jpg
-social:
-  - name: twitter
-    url: https://twitter.com/thomasvaeth
-  - name: instagram
-    url: https://www.instagram.com/thomas.vaeth/
-  - name: linkedin
-    url: https://www.linkedin.com/in/thomasvaeth/
-  - name: github
-    url: https://github.com/samesies
-  - name: codepen
-    url: https://codepen.io/thomasvaeth/
+# nav 中文字符空格：&emsp;
+nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
+  首页: '/'
+  标签: '/tags.html'
+  时间线: '/timeline.html'
+  关于博主: '/about.html'
+  友情链接: '/friendLink.html'
 
-# Contact settings
-contact_img: /assets/images/placeholder-28.jpg
-formcarry: https://formcarry.com/s/HkIo0nMb7
+# 博主
+author: true
+name: 'XieHangcheng'
+NickName: ' '
+webtitle: 'https://XieHangcheng.github.io'
+bio: 'https://XieHangcheng.github.io'
+about: true
+aboutyou: '同济大学CS17级''
+portraits: '/assets/profile.jpeg' # your portraits image file path
 
-# Disqus settings
-disqus: test-apkdzgmqhj
+# SNS
+SNS: true
+SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:abc@gmail.com'
+  weixin: '' # 你的微信二维码存放的地址
+  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: ''
+  Codepen: ''
+  weibo: ''
+  instagram: ''
+  Twitter: ''
+  Dribbble: ''
+  Facebook: ''
+  Google: ''
+  zhihu: ''
+  juejin: ''
+  twitch: ''
 
-# MailChimp settings
-mailchimp_action: https://samesies.us17.list-manage.com/subscribe/post-json?u=66ddf555dab480e6a8606430b&amp;id=89b3ee034f
-mailchimp_input: b_66ddf555dab480e6a8606430b_89b3ee034f
+# 分页
+paginate: 2
+paginatepath: ['page:num']
 
-# Author settings
-author:
-  - name: Thomas Vaeth
-    bio: Thomas Vaeth was born in New York, raised in Pennsylvania, and transplanted in Washington. He was a Web Developer at Urban Influence, but now he's a Software Engineer at Getty Images.
-    url: http://thomasvaeth.com
+# since
+footer:
+  since: 2018
 
-# Pagination settings
-pagination:
-  enabled: true
-  debug: false
-  per_page: 12
-  permalink: '/page/:num/'
-  title: ':title'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-autopages:
-  enabled: true
-  categories:
-    enabled: false
-  collections:
-    enabled: false
-  tags:
-    layouts: 
-      - 'tag.html'
-    title: 'The Barber Theme'
-    permalink: '/tag/:tag'
-    slugify:
-      mode: raw
-      cased: true
-
-# Build settings
+# Markdown
 markdown: kramdown
-plugins:
-  - jekyll-paginate-v2
-  - jekyll-sitemap
-compress_html:
-  clippings: all
-  comments: all
-  startings: [html, head, body]
-exclude:
-  - node_modules
-  - .DS_Store
-  - barber.jpg
-  - Gemfile
-  - Gemfile.lock
-  - gulpfile.js
-  - package.json
-  - README.md
-  - vendor
+kramdown:
+  input: GFM
+# 代码高亮 使用rouge
+highlighter: rouge
+# 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
+pygmentsTheme: 'default'
+
+# 友情链接
+friends:
+  jekyll: 'https://www.jekyll.com.cn/'
+
+# 评论 最佳体验 在disqus、livere和Gitment之间三选一
+# disqus 评论
+disqus: false
+disqus_url: '' # https://abc.disqus.com/embed.js
+# 来必力评论
+livere: true
+livere_uid: 'MTAyMC8zNDI2OS8xMDgwNg==' # MTAyMC8zNDI2OS8xMDgwNg==
+# Gitment评论 OAuth Application
+Gitment: false
+Gitment_owner: ''  # github用户名
+Gitment_repo: ''  # github博客存放的仓库名
+client_id: ''  # 注册 OAuth Application 后获得的 client_id
+client_secret: ''  # 注册 OAuth Application 后获得的 client_secret
+
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+
+# 百度统计 在baidu-url里填写自己相关的url代码
+baidu: true
+baidu-url: ''
+# 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
+google: false
+google-ID: ''
+
+# 博客头信息备选颜色（该部分在站点中不充当站点变量，将其写在post的头信息中用来充当页面变量）
+color: rgb(154,133,255) rgb(255,90,90) rgb(255,210,32) rgb(98,170,255)

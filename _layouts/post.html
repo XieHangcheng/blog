@@ -1,85 +1,70 @@
----
-layout: default
----
-<div class="post">
-  <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="post__header section-padding--double">
-      <div class="grid-small">
-        <h2 itemprop="name headline">{{ page.title }}</h2>
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+{% include head.html %}
+{% include androidColor.html %}
+</head>
+<body>
 
-        <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%-d %b %Y" }}</time>
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+{% include post-header.html %}
+<!-- 引入移动下拉选项 -->
+{% include boot.html %}
+<!-- 引入博文顶部样式 -->
+{% include post-title.html %}
+<div class="markdown-body fadeInUp animated">
+
+  {% if page.subtitle %}
+    {% if page.color.size==0 or page.color==nil %}
+      <div class="postpage-subtitle" style="border-left: 8px solid #9A85FF; border-right: 8px solid #9A85FF;">
+        {{ page.subtitle }}
       </div>
-    </div>
-
-    {% if page.image %}
-      <div class="post__img">
-        <div>
-          <figure class="absolute-bg" style="background-image: url('{{ page.image }}');"></figure>
-        </div>
-      </div>
-    {% endif %}
-
-    <div class="post__content section-padding">
-      <div class="grid">
-        <div id="markdown" itemprop="articleBody">
-          {{content}}
-        </div>
-
-        {% include share.html %}
-      </div>
-    </div>
-
-    <!-- Everything inside the #author tags pulls data from the author -->
-    {% if page.author %}
-      <div class="section-padding--none">
-        <div class="grid">
-          <hr class="sep"/>
-        </div>
-      </div>
-
-      <div class="section-padding">
-        <div class="grid-small">
-          {% for author in page.author %}
-            {% assign authorDetails = site.author | where: "name", author %}
-            {% if forloop.first == true %}
-              <span class="post__author">Posted by
-            {% else %}
-              <span class="post__author">&amp;
-            {% endif %}
-            {% if authorDetails[0]["url"] %}<a href="{{ authorDetails[0]['url'] }}" title="More By {{ author }}">{% endif %}{{ author }}{% if authorDetails[0]["url"] %}</a>{% endif %}</span>
-            <p class="post__bio">{{ authorDetails[0]["bio"] }}</p>
-          {% endfor %}
-        </div>
+    {% else %}
+      <div class="postpage-subtitle" style="border-left: 8px solid {{ page.color }}; border-right: 8px solid {{ page.color }}">
+        {{ page.subtitle }}
       </div>
     {% endif %}
+  {% endif %}
 
-    {% include disqus.html %}
-
-  </article>
+  <!-- 文章内容 -->
+  {{ page.content }}
+  <!-- 引入share模块 -->
+  {% include share.html %}
 </div>
 
-<!-- Links to Previous/Next posts -->
-{% assign relatedTag = page.tags | first %}
-{% if relatedTag %}
-  <section class="related section-padding">
-    <div class="grid-xlarge">
-      <h2 class="related__title">Related</h2>
-      <div class="related__container">
-        {% for post in site.tags[relatedTag] limit: 3 %}
-          <article class="related__post">
-            <a class="related__link" href="{{ post.url | absolute_url }}">
-              {% if post.image %}
-                <figure class="related__img">
-                  <img src="{{ post.image }}" alt="{{ post.title }}"/>
-                </figure>
-              {% endif %}
-              <div>
-                <h2 class="related__text">{{ post.title }}</h2>
-              </div>
-            </a>
-          </article>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-{% endif %}
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+{% include comment.html %}
+<!-- 引入goto模块 -->
+{% include goto.html %}
+<!-- 引入页面底部模块 -->
+{% include footer.html %}
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
