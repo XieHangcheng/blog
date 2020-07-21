@@ -82,7 +82,7 @@ cover: '../assets/20200721/cover.jpg'
    filemgr-win64.exe --action delete --bucket bucketname --key filename
    ```
    ![delete.jpg](/assets/20200721/delete.jpg)
-   发现删除失败，这是因为我们之前创建令牌时为赋予删除权限，现在我们为令牌重新添加删除权限，再次尝试删除
+   发现删除失败，这是因为我们之前创建令牌时未赋予删除权限，现在我们为令牌重新添加删除权限，再次尝试删除
    ![delete_suc.jpg](/assets/20200721/delete_suc.jpg)
    删除成功
    
